@@ -1,0 +1,44 @@
+<mat-toolbar class="app-todo-header">Todo List</mat-toolbar>
+
+<mat-card class="app-todo-item"
+          *ngFor="let item of items">
+  <mat-checkbox [checked]="item.isCompleted"
+                (change)="updateItem($event, item)">{{item.title}}
+  </mat-checkbox>
+  <button mat-button
+          (click)="removeItem(item)">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-card>
+
+<button class="app-add-todo-button"
+        *ngIf="!newItem"
+        mat-raised-button
+        color="primary"
+        (click)="addItem()">Add Todo
+</button>
+
+<mat-card class="app-add-todo-item"
+          *ngIf="newItem">
+  <mat-checkbox  [(ngModel)]="newItem.isCompleted">
+  </mat-checkbox>
+  <mat-form-field class="app-add-todo-title"
+                  floatLabel="never">
+    <input matInput
+           [(ngModel)]="newItem.title"
+           placeholder="Add Title...">
+  </mat-form-field>
+</mat-card>
+
+<button class="app-save-todo-button"
+        *ngIf="newItem"
+        mat-raised-button
+        color="primary"
+        (click)="saveItem()">Save
+</button>
+
+<button *ngIf="newItem"
+        mat-button
+        color="primary"
+        (click)="cancelAdd()">Cancel
+</button>

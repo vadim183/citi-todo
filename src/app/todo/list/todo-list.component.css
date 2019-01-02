@@ -1,0 +1,19 @@
+.app-todo-header {
+  margin-bottom: 16px;
+}
+
+.app-todo-item {
+  margin-bottom: 12px;
+}
+
+.app-add-todo-title {
+  margin-left: 12px;
+}
+
+.app-add-todo-item {
+  margin-bottom: 16px;
+}
+
+.app-save-todo-button {
+  margin-right: 16px;
+}

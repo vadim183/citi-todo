@@ -1,3 +1,5 @@
+import { of } from 'rxjs';
+
 import { TodoListComponent } from './todo-list.component';
 import { TodoService } from '../todo.service';
 
@@ -25,25 +27,17 @@ describe('TodoListComponent', () => {
     component.ngOnInit();
   });
 
-  it('init item items', () => {
-    expect(component.items).toEqual(TODO_ITEMS);
+  it('should init item items$', () => {
+
   });
 
 
-  it('update an item as complete', () => {
-    let item = component.items[0];
+  it('should  update an item as complete', () => {
 
-    component.updateItem({ checked: true }, item);
-
-    expect(item.isCompleted).toBeTruthy();
   });
 
-  it('remove a item item', () => {
-    let item = component.items[0];
+  it('should remove a item item', () => {
 
-    component.removeItem(item);
-
-    expect(component.items).not.toEqual(jasmine.arrayContaining([item]));
   });
 
   describe('when adding a new item', () => {
@@ -51,7 +45,7 @@ describe('TodoListComponent', () => {
   });
 
   const setupTodoService = () => {
-    todoService = jasmine.createSpyObj('TodoService', ['getItems']);
-    todoService.getItems.and.returnValue(TODO_ITEMS);
+    todoService = jasmine.createSpyObj('TodoService', ['getItems', 'updateItem', 'removeItem']);
+    todoService.getItems.and.returnValue(of(TODO_ITEMS));
   };
 });

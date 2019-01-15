@@ -1,7 +1,7 @@
 <mat-toolbar class="app-todo-header">Todo List</mat-toolbar>
 
 <mat-card class="app-todo-item"
-          *ngFor="let item of items">
+          *ngFor="let item of items$ | async">
   <mat-checkbox [checked]="item.isCompleted"
                 (change)="updateItem($event, item)">{{item.title}}
   </mat-checkbox>

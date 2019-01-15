@@ -32,7 +32,8 @@ export class TodoListComponent implements OnInit {
   removeItem(item) {
   }
 
-  updateItem(event, item) {
+  updateItem(event: { checked: boolean }, item) {
+
   }
 
   saveItem() {

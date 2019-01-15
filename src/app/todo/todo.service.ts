@@ -9,11 +9,10 @@ export class TodoService {
     return of(TODO_ITEMS);
   }
 
-  updateItem(isCompleted: boolean): void {
+  updateItem(isCompleted: boolean, item: TodoItem): void {
   }
 
-  removeItem(item: TodoItem): boolean {
-    return undefined;
-  }
+  removeItem(item: TodoItem): void {
 
+  }
 }
